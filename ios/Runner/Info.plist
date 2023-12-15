@@ -45,12 +45,12 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
-	<string>NSLocationWhenInUseUsageDescription</string>
-	<key>Wanna display location on map and track it.</key>
-	<string>NSLocationAlwaysUsageDescription</string>
-    <key>Wanna display location on map and track it.</key>
-    <string>NSLocationAlwaysAndWhenInUseUsageDescription</string>
-    <key>Wanna display location on map and track it.</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Wanna display location on map and track it.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+    <string>Wanna display location on map and track it.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Wanna display location on map and track it.</string>
     <key>UIBackgroundModes</key>
     <array>
         <string>fetch</string>
