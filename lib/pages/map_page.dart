@@ -29,11 +29,13 @@ class _MapPageState extends State<MapPage> {
   void initState() {
     super.initState();
 
-    getLocationUpdates().then((_) => {
-          getPolylinePoints().then((coordinates) => {
-                generatePolylineFromPoints(coordinates),
-              }),
-        });
+    // getLocationUpdates().then((_) => {
+    //       getPolylinePoints().then((coordinates) => {
+    //             generatePolylineFromPoints(coordinates),
+    //           }),
+    //     });
+
+    getLocationUpdates();
   }
 
   @override
@@ -48,7 +50,7 @@ class _MapPageState extends State<MapPage> {
                     _mapController.complete(controller);
                   },
                   initialCameraPosition: CameraPosition(
-                    target: _pRoom!,
+                    target: _currentPosition!,
                     zoom: 13,
                   ),
                   markers: {
@@ -74,11 +76,24 @@ class _MapPageState extends State<MapPage> {
                 Positioned(
                   top: 50,
                   left: 20,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      _cameraToPositoon(_currentPosition!);
-                    },
-                    child: const Icon(Icons.my_location),
+                  child: Column(
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          _cameraToPositoon(_currentPosition!);
+                        },
+                        child: const Icon(Icons.my_location),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          _cameraToPositoon(_pRoom);
+                          getPolylinePoints().then((coordinates) => {
+                                generatePolylineFromPoints(coordinates),
+                              });
+                        },
+                        child: const Icon(Icons.directions),
+                      ),
+                    ],
                   ),
                 ),
               ],
